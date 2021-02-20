@@ -3,7 +3,7 @@ import os
 import csv
 
 #Prompt the user for what video they are looking for
-video = input("Which program are you looking for? ").title()
+video = input("Which program are you looking for? ").title() #added .title to capitalize all words in user input
 
 #Set path for csv file
 csvpath = os.path.join("Resources", "netflix_ratings.csv")
