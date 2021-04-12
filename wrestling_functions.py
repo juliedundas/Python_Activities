@@ -55,7 +55,7 @@ with open(wrestling_csv, 'r') as csvfile:
     exists = False
 
     # Prompt the user for what wrestler they would like to search for
-    name_to_check = input("What wrestler do you want to look for? ")
+    name_to_check = input("What wrestler do you want to look for? ").title()
 
     # Loop through the data
     for row in csvreader:
