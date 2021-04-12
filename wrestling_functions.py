@@ -4,6 +4,10 @@ import csv
 # Path to collect data from the Resources folder
 wrestling_csv = os.path.join('.', 'Resources', 'WWE-Data-2016.csv')
 
+# Set variable to see if wrestler exists
+
+exists = False
+
 # Define the function and have it accept the 'wrestlerData' as its sole parameter
 def show_percentages(wrestler_data):
     #Print various statistics
@@ -11,6 +15,8 @@ def show_percentages(wrestler_data):
     wins = int(wrestler_data[1])
     losses = int(wrestler_data[2])
     draws = int(wrestler_data[3])
+
+    exists = True
 
 # Find the total number of matches wrestled
     total_matches = wins + losses + draws
@@ -25,9 +31,6 @@ def show_percentages(wrestler_data):
 
 # Find the percentage of matches drawn
     draw_percentage = round((draws / total_matches) * 100,2)
-
-    # if wrestler_name is None:
-    #     print(f"Sorry, please choose another.")
 
 # If the loss percentage is over 50, type_of_wrestler is "Jobber". Otherwise it is "Superstar".
     if loss_percentage > 50:
@@ -48,17 +51,25 @@ with open(wrestling_csv, 'r') as csvfile:
     # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
 
+    # Set variable to check if we found the wrestler
+    exists = False
+
     # Prompt the user for what wrestler they would like to search for
     name_to_check = input("What wrestler do you want to look for? ")
 
     # Loop through the data
     for row in csvreader:
 
-        # If the wrestler's name in a row is equal to that which the user input, run the 'show_percentages()' function
-        if(name_to_check == row[0]):
-            show_percentages(row)
+        # Set variable for wrestler name
+        name = row[0]
 
-#Ask for another entry if wrestler is not in the directory
-if name_to_check is None:                
-    print(f"Sorry, that name is not in our directory. Please choose another wrestler.")    
+        # If the wrestler's name in a row is equal to that which the user input, run the 'show_percentages()' function
+        if(name_to_check == name):
+            show_percentages(row)      
+
+        # Set variable to confirm we have found the wrestler
+        exists = True
+
+if exists is False:
+    print(f"Sorry, that name is not in our directory. Please choose another wrestler.")  
  
