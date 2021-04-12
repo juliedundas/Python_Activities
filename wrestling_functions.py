@@ -26,6 +26,9 @@ def show_percentages(wrestler_data):
 # Find the percentage of matches drawn
     draw_percentage = round((draws / total_matches) * 100,2)
 
+    # if wrestler_name is None:
+    #     print(f"Sorry, please choose another.")
+
 # If the loss percentage is over 50, type_of_wrestler is "Jobber". Otherwise it is "Superstar".
     if loss_percentage > 50:
         type_of_wrestler = "Jobber"
@@ -51,6 +54,11 @@ with open(wrestling_csv, 'r') as csvfile:
     # Loop through the data
     for row in csvreader:
 
-        # If the wrestler's name in a row is equal to that which the user input, run the 'print_percentages()' function
+        # If the wrestler's name in a row is equal to that which the user input, run the 'show_percentages()' function
         if(name_to_check == row[0]):
             show_percentages(row)
+
+#Ask for another entry if wrestler is not in the directory
+if name_to_check is None:                
+    print(f"Sorry, that name is not in our directory. Please choose another wrestler.")    
+ 
