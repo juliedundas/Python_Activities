@@ -37,3 +37,27 @@ I have created this repository to include various applications that I created wi
   * Uses the data stored within `wrestler_data` to calculate the percentage of matches the wrestler won, lost, and drew over the course of a year.
 
   * Prints out the stats for the wrestler to the terminal.
+
+# Fourth Activity
+
+* This assignment will give you experience creating DataFrames from scratch.
+
+## Instructions
+
+* First, use Pandas to create a DataFrame with the following columns and values:
+
+  * `Character_in_show`: Arnold, Gerald, Helga, Phoebe, Harold, Eugene
+
+  * `color_of_hair`: blonde, black, blonde, black, unknown, red
+
+  * `Height`: average, tallish, tallish, short, tall, short
+
+  * `Football_Shaped_Head`: True, False, False, False, False, False
+
+* You'll note that the above column names are inconsistent and difficult to work with. Rename them to the following, respectively:
+
+  * `Character`, `Hair Color`, `Height`, `Football Head`
+
+* Next, create a new table that contains all of the columns in the following order...
+
+  * `Character`, `Football Head`, `Hair Color`, `Height`
