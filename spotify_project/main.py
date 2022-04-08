@@ -7,7 +7,7 @@ import pandas as pd
 response = requests.get("https://developer.spotify.com/")
 
 #Print the response to ensure a successful connection. Response 200 indicates a successful connection
-print(response)  
+#print(response)  
 
 #Create variables to print
 # response1 = response.content() # Return the raw bytes of the data payload
@@ -36,7 +36,7 @@ track_name = []
 popularity = []
 track_id = []
 for i in range(0,100,50):
-    track_results = sp.search(q='year:2021', type='track', limit=50,offset=i)
+    track_results = sp.search(q='year:2020', type='track', limit=50,offset=i)
     for i, t in enumerate(track_results['tracks']['items']):
         artist_name.append(t['artists'][0]['name'])
         track_name.append(t['name'])
@@ -50,5 +50,14 @@ track_dataframe = pd.DataFrame({'artist_name' : artist_name, 'track_name' : trac
 #print(track_dataframe.shape)
 df = track_dataframe.head()
 
-print(track_dataframe)
+#print(track_dataframe)
+
+#Create variable for the song to be listened to and the artist
+song_choice = (df.iloc[2, 1])
+artist = (df.iloc[2, 0])
+
+#Print the song name and artist name in a sentence
+print(f"I would like to listen to {song_choice} by {artist}.")
+
+
 
